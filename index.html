@@ -3,175 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Rent A Car</title>
+
+<title>World Rent A Car | Yellow Edition</title>
 
 <style>
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:Arial,sans-serif;
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 header{
-  text-align:center;
-  padding:35px 15px;
-  border-bottom:1px solid #d4af37;
+    text-align:center;
+    padding:30px 15px 20px;
+    border-bottom:1px solid #292929;
+}
+
+.logo{
+    width:230px;
+    max-width:75%;
+    margin-bottom:12px;
 }
 
 h1{
-  color:#ffd400;
-  font-size:42px;
-  margin:0;
+    color:#ffd400;
+    margin:5px 0;
+    font-size:34px;
 }
 
 .slogan{
-  color:#ffd400;
-  margin-top:10px;
-  letter-spacing:2px;
+    color:#ffd400;
+    letter-spacing:2px;
+    font-weight:bold;
+    font-size:14px;
 }
 
-.services{
-  text-align:center;
-  padding:20px;
-  color:#ddd;
-  font-size:14px;
+.intro{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    padding:22px;
+    color:#aaa;
 }
 
 .collection-title{
-  text-align:center;
-  color:#ffd400;
-  margin:35px 0 20px;
+    color:#ffd400;
+    text-align:center;
+    font-size:26px;
+    margin:35px 10px 20px;
 }
 
 .cars{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
+    max-width:1200px;
+    margin:auto;
+    padding:15px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:18px;
 }
 
 .car{
-  background:#111;
-  border:1px solid #b78b18;
-  border-radius:12px;
-  padding:25px 15px;
-  text-align:center;
+    background:#0d0d0d;
+    border:1px solid #6d5a00;
+    border-radius:16px;
+    overflow:hidden;
+    text-align:center;
+    transition:.2s;
 }
 
-.number{
-  color:#ffd400;
-  font-weight:bold;
-  font-size:14px;
+.car:hover{
+    transform:translateY(-3px);
+    border-color:#ffd400;
+}
+
+.car img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    background:#161616;
+    display:block;
+}
+
+.car-info{
+    padding:20px;
+}
+
+.car-number{
+    color:#777;
+    font-size:12px;
 }
 
 .car h2{
-  font-size:20px;
-  min-height:48px;
+    font-size:19px;
+    margin:8px 0 12px;
+    min-height:45px;
 }
 
 .price{
-  color:#ffd400;
-  font-size:22px;
-  font-weight:bold;
-  margin:15px 0;
+    color:#ffd400;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
 .reserve{
-  border:0;
-  background:#ffd400;
-  color:#000;
-  font-weight:bold;
-  padding:14px 30px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:16px;
+    width:100%;
+    background:#ffd400;
+    color:#000;
+    border:0;
+    border-radius:9px;
+    padding:14px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
 }
 
 .reserve:hover{
-  background:#fff;
+    background:#fff;
 }
 
+/* RESERVA */
+
 .modal{
-  display:none;
-  position:fixed;
-  z-index:1000;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  overflow:auto;
-  background:rgba(0,0,0,.94);
-  padding:20px;
+    display:none;
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    overflow:auto;
+    background:rgba(0,0,0,.96);
+    padding:20px;
 }
 
 .modal-content{
-  background:#111;
-  border:1px solid #ffd400;
-  max-width:520px;
-  margin:30px auto;
-  padding:28px;
-  border-radius:15px;
+    max-width:520px;
+    margin:25px auto;
+    background:#101010;
+    border:1px solid #ffd400;
+    border-radius:18px;
+    padding:25px;
 }
 
 .modal-content h2{
-  color:#ffd400;
-  text-align:center;
+    text-align:center;
+    color:#ffd400;
+    margin-top:0;
+}
+
+.selected-price{
+    text-align:center;
+    color:#aaa;
+    margin-bottom:20px;
 }
 
 label{
-  display:block;
-  margin:15px 0 6px;
+    display:block;
+    margin:15px 0 6px;
+    font-weight:bold;
 }
 
 input{
-  width:100%;
-  padding:13px;
-  border-radius:7px;
-  border:1px solid #555;
-  background:#222;
-  color:#fff;
-  font-size:16px;
+    width:100%;
+    padding:13px;
+    background:#222;
+    border:1px solid #555;
+    border-radius:8px;
+    color:#fff;
+    font-size:16px;
 }
 
 .total{
-  color:#ffd400;
-  font-size:21px;
-  font-weight:bold;
-  text-align:center;
-  margin:22px 0;
-}
-
-.confirm,.close{
-  width:100%;
-  padding:15px;
-  border:0;
-  border-radius:8px;
-  font-weight:bold;
-  font-size:16px;
-  cursor:pointer;
+    color:#ffd400;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin:25px 0;
 }
 
 .confirm{
-  background:#ffd400;
-  color:#000;
+    width:100%;
+    background:#ffd400;
+    color:#000;
+    border:0;
+    border-radius:9px;
+    padding:16px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .close{
-  margin-top:10px;
-  background:#333;
-  color:#fff;
+    width:100%;
+    margin-top:10px;
+    background:#292929;
+    color:#fff;
+    border:0;
+    border-radius:9px;
+    padding:14px;
+    cursor:pointer;
 }
 
 footer{
-  text-align:center;
-  padding:40px 20px;
-  color:#888;
-  border-top:1px solid #333;
+    border-top:1px solid #222;
+    margin-top:50px;
+    padding:40px 20px;
+    text-align:center;
+    color:#777;
+}
+
+@media(max-width:600px){
+    .cars{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:29px;
+    }
 }
 </style>
 </head>
@@ -179,60 +228,117 @@ footer{
 <body>
 
 <header>
-<h1>WORLD RENT A CAR</h1>
-<div class="slogan">TU MUNDO. TU COCHE. TU LUJO.</div>
-</header>
 
-<div class="services">
-✈ ENTREGA EN AEROPUERTOS &nbsp; | &nbsp;
-🛡 SEGURO A TODO RIESGO &nbsp; | &nbsp;
-24/7 ASISTENCIA &nbsp; | &nbsp;
-◆ VEHÍCULOS EXCLUSIVOS
+<img src="images/logo-world-rent-a-car.png"
+     class="logo"
+     alt="World Rent A Car">
+
+<h1>WORLD RENT A CAR</h1>
+
+<div class="slogan">
+TU MUNDO · TU COCHE · TU LUJO
 </div>
 
-<h2 class="collection-title">YELLOW EDITION · SUPERCARS</h2>
+</header>
+
+<div class="intro">
+Selecciona tu vehículo, elige las fechas de alquiler
+y realiza tu solicitud de reserva.
+</div>
+
+
+<h2 class="collection-title">
+YELLOW EDITION · SUPERCARS
+</h2>
 
 <div class="cars" id="supercars"></div>
 
-<h2 class="collection-title">YELLOW EDITION · TESLA</h2>
+
+<h2 class="collection-title">
+YELLOW EDITION · TESLA COLLECTION
+</h2>
 
 <div class="cars" id="teslas"></div>
 
 
+<!-- RESERVA -->
+
 <div id="modalReserva" class="modal">
+
 <div class="modal-content">
 
-<h2 id="nombreCoche">Reserva</h2>
+<h2 id="nombreCoche"></h2>
+
+<div class="selected-price" id="precioSeleccionado"></div>
 
 <label>Fecha de recogida</label>
-<input type="date" id="fechaInicio" onchange="calcularPrecio()">
+
+<input
+type="date"
+id="fechaInicio"
+onchange="calcularPrecio()">
+
 
 <label>Fecha de devolución</label>
-<input type="date" id="fechaFin" onchange="calcularPrecio()">
+
+<input
+type="date"
+id="fechaFin"
+onchange="calcularPrecio()">
+
 
 <label>Nombre y apellidos</label>
-<input type="text" id="nombreCliente">
+
+<input
+type="text"
+id="nombreCliente"
+placeholder="Nombre completo">
+
 
 <label>Teléfono</label>
-<input type="tel" id="telefono">
+
+<input
+type="tel"
+id="telefono"
+placeholder="+34...">
+
 
 <label>Email</label>
-<input type="email" id="email">
+
+<input
+type="email"
+id="email"
+placeholder="email@ejemplo.com">
+
 
 <label>Lugar de entrega</label>
-<input type="text" id="entrega"
+
+<input
+type="text"
+id="entrega"
 placeholder="Hotel, villa, aeropuerto...">
+
 
 <div class="total" id="precioTotal">
 Selecciona las fechas
 </div>
 
-<button class="confirm" onclick="confirmarReserva()">
+
+<button
+class="confirm"
+onclick="confirmarReserva()">
+
 CONFIRMAR RESERVA
+
 </button>
 
-<button class="close" onclick="cerrarReserva()">
+
+<button
+class="close"
+onclick="cerrarReserva()">
+
 VOLVER
+
 </button>
 
 </div>
@@ -240,170 +346,500 @@ VOLVER
 
 
 <footer>
-WORLD RENT A CAR<br><br>
-Precios orientativos sujetos a disponibilidad, fechas,
-duración del alquiler y lugar de entrega.
+
+<strong>WORLD RENT A CAR</strong>
+
+<br><br>
+
+YELLOW EDITION
+
+<br><br>
+
+Precios sujetos a disponibilidad y condiciones del alquiler.
+
 </footer>
 
 
 <script>
 
-const supercars = [
-["Bugatti Chiron",18000],
-["Ferrari SF90 Stradale",4500],
-["Lamborghini Revuelto",3600],
-["Bugatti Divo",15000],
-["Ferrari 812 Superfast",3200],
-["McLaren 765LT",2800],
-["Rolls-Royce Cullinan",2200],
-["Aston Martin DBS Superleggera",2100],
-["Pagani Huayra",12000],
-["Ferrari Portofino M",2100],
-["Bentley Continental GT",1965],
-["Mercedes-AMG GT Black Series",1800],
-["Porsche 911 Turbo S",1500],
-["Koenigsegg Jesko",11000],
-["Ferrari Roma",1400],
+/* ===============================
+   COCHES
+================================ */
 
-["Aston Martin DB12",2900],
-["Mercedes-AMG GT 63 S E Performance",2600],
-["Porsche Taycan Turbo GT",2400],
-["McLaren 750S",2300],
-["Rolls-Royce Spectre",5500],
-["Lamborghini Urus SE",2800],
-["Bentley Flying Spur Mulliner",2200],
-["Ferrari SF90 Spider",3800],
-["Maserati MC20 Cielo",2100],
-["Audi R8 V10 Performance",1900],
-["Chevrolet Corvette Z06",1400],
-["BMW M8 Competition Gran Coupé",1600],
-["Jaguar F-Type R",1300],
-["Lotus Emira V6",1200],
-["Alpine A110 R",1100]
+const supercars = [
+
+{
+name:"Bugatti Chiron",
+price:18000,
+image:"images/bugatti-chiron.jpeg"
+},
+
+{
+name:"Ferrari SF90 Stradale",
+price:4500,
+image:"images/ferrari-sf90-stradale.jpeg"
+},
+
+{
+name:"Lamborghini Revuelto",
+price:3600,
+image:"images/lamborghini-revuelto.jpeg"
+},
+
+{
+name:"Bugatti Divo",
+price:15000,
+image:"images/bugatti-divo.jpeg"
+},
+
+{
+name:"Ferrari 812 Superfast",
+price:3200,
+image:"images/ferrari-812-superfast.jpeg"
+},
+
+{
+name:"McLaren 765LT",
+price:2800,
+image:"images/mclaren-765lt.jpeg"
+},
+
+{
+name:"Rolls-Royce Cullinan",
+price:2200,
+image:"images/rolls-royce-cullinan.jpeg"
+},
+
+{
+name:"Aston Martin DBS Superleggera",
+price:2100,
+image:"images/aston-martin-dbs-superleggera.jpeg"
+},
+
+{
+name:"Pagani Huayra",
+price:12000,
+image:"images/pagani-huayra.jpeg"
+},
+
+{
+name:"Ferrari Portofino M",
+price:2100,
+image:"images/ferrari-portofino-m.jpeg"
+},
+
+{
+name:"Bentley Continental GT",
+price:1965,
+image:"images/bentley-continental-gt.jpeg"
+},
+
+{
+name:"Mercedes-AMG GT Black Series",
+price:1800,
+image:"images/mercedes-amg-gt-black-series.jpeg"
+},
+
+{
+name:"Porsche 911 Turbo S",
+price:1500,
+image:"images/porsche-911-turbo-s.jpeg"
+},
+
+{
+name:"Koenigsegg Jesko",
+price:11000,
+image:"images/koenigsegg-jesko.jpeg"
+},
+
+{
+name:"Ferrari Roma",
+price:1400,
+image:"images/ferrari-roma.jpeg"
+},
+
+{
+name:"Aston Martin DB12",
+price:2900,
+image:"images/aston-martin-db12.jpeg"
+},
+
+{
+name:"Mercedes-AMG GT 63 S E Performance",
+price:2600,
+image:"images/mercedes-amg-gt-63-se-performance.jpeg"
+},
+
+{
+name:"Porsche Taycan Turbo GT",
+price:2400,
+image:"images/porsche-taycan-turbo-gt.jpeg"
+},
+
+{
+name:"McLaren 750S",
+price:2300,
+image:"images/mclaren-750s.jpeg"
+},
+
+{
+name:"Rolls-Royce Spectre",
+price:5500,
+image:"images/rolls-royce-spectre.jpeg"
+},
+
+{
+name:"Lamborghini Urus SE",
+price:2800,
+image:"images/lamborghini-urus-se.jpeg"
+},
+
+{
+name:"Bentley Flying Spur Mulliner",
+price:2200,
+image:"images/bentley-flying-spur-mulliner.jpeg"
+},
+
+{
+name:"Ferrari SF90 Spider",
+price:3800,
+image:"images/ferrari-sf90-spider.jpeg"
+},
+
+{
+name:"Maserati MC20 Cielo",
+price:2100,
+image:"images/maserati-mc20-cielo.jpeg"
+},
+
+{
+name:"Audi R8 V10 Performance",
+price:1900,
+image:"images/audi-r8-v10-performance.jpeg"
+},
+
+{
+name:"Chevrolet Corvette Z06",
+price:1400,
+image:"images/chevrolet-corvette-z06.jpeg"
+},
+
+{
+name:"BMW M8 Competition Gran Coupé",
+price:1600,
+image:"images/bmw-m8-competition.jpeg"
+},
+
+{
+name:"Jaguar F-Type R",
+price:1300,
+image:"images/jaguar-f-type-r.jpeg"
+},
+
+{
+name:"Lotus Emira V6",
+price:1200,
+image:"images/lotus-emira-v6.jpeg"
+},
+
+{
+name:"Alpine A110 R",
+price:1100,
+image:"images/alpine-a110-r.jpeg"
+}
+
 ];
+
+
+/* ===============================
+   TESLA
+================================ */
 
 const teslas = [
-["Tesla Model S Plaid",350],
-["Tesla Model S Long Range",280],
-["Tesla Model X Plaid",400],
-["Tesla Model X Long Range",320],
-["Tesla Model 3 Performance",220],
-["Tesla Model Y Performance",200],
-["Tesla Model Y Long Range",180],
-["Tesla Model S Long Range",280],
-["Tesla Model X Plaid (6 plazas)",420],
-["Tesla Cybertruck AWD",500]
+
+{
+name:"Tesla Model S Plaid",
+price:350,
+image:"images/tesla-model-s-plaid.jpeg"
+},
+
+{
+name:"Tesla Model S Long Range",
+price:280,
+image:"images/tesla-model-s-long-range.jpeg"
+},
+
+{
+name:"Tesla Model X Plaid",
+price:400,
+image:"images/tesla-model-x-plaid.jpeg"
+},
+
+{
+name:"Tesla Model X Long Range",
+price:320,
+image:"images/tesla-model-x-long-range.jpeg"
+},
+
+{
+name:"Tesla Model 3 Performance",
+price:220,
+image:"images/tesla-model-3-performance.jpeg"
+},
+
+{
+name:"Tesla Model Y Performance",
+price:200,
+image:"images/tesla-model-y-performance.jpeg"
+},
+
+{
+name:"Tesla Model Y Long Range",
+price:180,
+image:"images/tesla-model-y-long-range.jpeg"
+},
+
+{
+name:"Tesla Model X Plaid · 6 plazas",
+price:420,
+image:"images/tesla-model-x-plaid-6-plazas.jpeg"
+},
+
+{
+name:"Tesla Cybertruck AWD",
+price:500,
+image:"images/tesla-cybertruck-awd.jpeg"
+},
+
+{
+name:"Tesla Model 3 Long Range",
+price:190,
+image:"images/tesla-model-3-long-range.jpeg"
+}
+
 ];
 
-let precioDia = 0;
-let cocheSeleccionado = "";
+
+/* ===============================
+   CREAR TARJETAS
+================================ */
 
 function crearCoches(lista,contenedor){
 
-  const zona=document.getElementById(contenedor);
+const zona=document.getElementById(contenedor);
 
-  lista.forEach((coche,index)=>{
+lista.forEach((coche,index)=>{
 
-    const tarjeta=document.createElement("div");
-    tarjeta.className="car";
+const tarjeta=document.createElement("div");
 
-    tarjeta.innerHTML=`
-      <div class="number">
-      ${String(index+1).padStart(2,"0")}
-      </div>
+tarjeta.className="car";
 
-      <h2>${coche[0]}</h2>
+tarjeta.innerHTML=`
 
-      <div class="price">
-      DESDE ${coche[1].toLocaleString("es-ES")} € / DÍA
-      </div>
+<img
+src="${coche.image}"
+alt="${coche.name}"
+loading="lazy">
 
-      <button class="reserve"
-      onclick="abrirReserva('${coche[0].replace(/'/g,"\\'")}',${coche[1]})">
-      RESERVAR
-      </button>
-    `;
+<div class="car-info">
 
-    zona.appendChild(tarjeta);
+<div class="car-number">
+${String(index+1).padStart(2,"0")}
+</div>
 
-  });
+<h2>${coche.name}</h2>
+
+<div class="price">
+DESDE ${coche.price.toLocaleString("es-ES")} € / DÍA
+</div>
+
+<button
+class="reserve"
+onclick='abrirReserva(${JSON.stringify(coche.name)},${coche.price})'>
+
+RESERVAR
+
+</button>
+
+</div>
+`;
+
+zona.appendChild(tarjeta);
+
+});
 
 }
+
 
 crearCoches(supercars,"supercars");
 crearCoches(teslas,"teslas");
 
 
+/* ===============================
+   RESERVA
+================================ */
+
+let cocheSeleccionado="";
+let precioDia=0;
+
+
 function abrirReserva(coche,precio){
 
-  cocheSeleccionado=coche;
-  precioDia=precio;
+cocheSeleccionado=coche;
+precioDia=precio;
 
-  document.getElementById("nombreCoche").innerText=coche;
+document.getElementById("nombreCoche").innerText=coche;
 
-  document.getElementById("modalReserva").style.display="block";
+document.getElementById("precioSeleccionado").innerText=
+precio.toLocaleString("es-ES")+" € / día";
 
-  document.body.style.overflow="hidden";
+document.getElementById("precioTotal").innerText=
+"Selecciona las fechas";
+
+document.getElementById("modalReserva").style.display="block";
+
+document.body.style.overflow="hidden";
+
 }
 
 
 function cerrarReserva(){
 
-  document.getElementById("modalReserva").style.display="none";
+document.getElementById("modalReserva").style.display="none";
 
-  document.body.style.overflow="auto";
+document.body.style.overflow="auto";
+
 }
+
+
+/* ===============================
+   FECHAS
+================================ */
+
+const hoy=new Date().toISOString().split("T")[0];
+
+document.getElementById("fechaInicio").min=hoy;
+document.getElementById("fechaFin").min=hoy;
 
 
 function calcularPrecio(){
 
-  const inicio=document.getElementById("fechaInicio").value;
-  const fin=document.getElementById("fechaFin").value;
+const inicio=
+document.getElementById("fechaInicio").value;
 
-  if(!inicio || !fin) return;
+const fin=
+document.getElementById("fechaFin").value;
 
-  const f1=new Date(inicio+"T00:00:00");
-  const f2=new Date(fin+"T00:00:00");
 
-  const dias=Math.ceil(
-    (f2-f1)/(1000*60*60*24)
-  );
-
-  if(dias<=0){
-
-    document.getElementById("precioTotal").innerText=
-    "La devolución debe ser posterior a la recogida";
-
-    return;
-  }
-
-  const total=dias*precioDia;
-
-  document.getElementById("precioTotal").innerText=
-  dias+" días · "+total.toLocaleString("es-ES")+" €";
+if(!inicio || !fin){
+return;
 }
 
 
+document.getElementById("fechaFin").min=inicio;
+
+
+const f1=new Date(inicio+"T00:00:00");
+const f2=new Date(fin+"T00:00:00");
+
+
+const dias=Math.ceil(
+(f2-f1)/(1000*60*60*24)
+);
+
+
+if(dias<=0){
+
+document.getElementById("precioTotal").innerText=
+"La devolución debe ser posterior a la recogida";
+
+return;
+
+}
+
+
+const total=dias*precioDia;
+
+
+document.getElementById("precioTotal").innerText=
+
+dias+
+(dias===1 ? " día · " : " días · ")+
+"TOTAL: "+
+total.toLocaleString("es-ES")+
+" €";
+
+}
+
+
+/* ===============================
+   CONFIRMAR RESERVA
+================================ */
+
 function confirmarReserva(){
 
-  const nombre=document.getElementById("nombreCliente").value;
-  const telefono=document.getElementById("telefono").value;
-  const email=document.getElementById("email").value;
-  const inicio=document.getElementById("fechaInicio").value;
-  const fin=document.getElementById("fechaFin").value;
-  const entrega=document.getElementById("entrega").value;
+const nombre=
+document.getElementById("nombreCliente").value.trim();
 
-  if(!nombre || !telefono || !email ||
-     !inicio || !fin || !entrega){
+const telefono=
+document.getElementById("telefono").value.trim();
 
-    alert("Por favor, completa todos los datos.");
-    return;
-  }
+const email=
+document.getElementById("email").value.trim();
 
-  alert(
-    "Solicitud preparada para "+cocheSeleccionado+
-    ". Ahora conectaremos la web con el sistema de disponibilidad."
-  );
+const inicio=
+document.getElementById("fechaInicio").value;
+
+const fin=
+document.getElementById("fechaFin").value;
+
+const entrega=
+document.getElementById("entrega").value.trim();
+
+
+if(
+!nombre ||
+!telefono ||
+!email ||
+!inicio ||
+!fin ||
+!entrega
+){
+
+alert("Por favor, completa todos los datos.");
+return;
+
+}
+
+
+const f1=new Date(inicio+"T00:00:00");
+const f2=new Date(fin+"T00:00:00");
+
+const dias=Math.ceil(
+(f2-f1)/(1000*60*60*24)
+);
+
+
+if(dias<=0){
+
+alert("Comprueba las fechas de la reserva.");
+return;
+
+}
+
+
+const total=dias*precioDia;
+
+
+alert(
+"RESERVA PREPARADA\n\n"+
+"Coche: "+cocheSeleccionado+"\n"+
+"Recogida: "+inicio+"\n"+
+"Devolución: "+fin+"\n"+
+"Total: "+total.toLocaleString("es-ES")+" €\n\n"+
+"En el siguiente paso conectaremos esta reserva con Google Sheets."
+);
+
 }
 
 </script>
