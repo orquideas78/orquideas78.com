@@ -350,7 +350,10 @@
 <section class="hero" id="inicio">
   <div class="hero-content">
     <h2>Tu mundo, tu coche, tu lujo</h2>
-    <p>Descubre nuestra colección exclusiva Yellow Edition de supercars, luxury cars y Tesla.</p>
+    <p>
+      Descubre nuestra colección exclusiva Yellow Edition
+      de supercars, luxury cars y Tesla.
+    </p>
     <a class="hero-button" href="#supercars">VER COCHES</a>
   </div>
 </section>
@@ -360,6 +363,7 @@
     <h2>🏎️ SUPERCARS</h2>
     <p>16 coches exclusivos de altas prestaciones</p>
   </div>
+
   <div class="cars-grid" id="supercars-grid"></div>
 </section>
 
@@ -369,6 +373,7 @@
       <h2>👑 LUXURY CARS</h2>
       <p>15 coches de máximo lujo y confort</p>
     </div>
+
     <div class="cars-grid" id="luxury-grid"></div>
   </div>
 </section>
@@ -378,6 +383,7 @@
     <h2>⚡ TESLA</h2>
     <p>9 Teslas Yellow Edition</p>
   </div>
+
   <div class="cars-grid" id="tesla-grid"></div>
 </section>
 
@@ -388,6 +394,7 @@
     <form id="reservation-form">
       <div class="form-group">
         <label for="car">Coche</label>
+
         <select id="car" required>
           <option value="">Selecciona un coche</option>
         </select>
@@ -395,30 +402,60 @@
 
       <div class="form-group">
         <label for="name">Nombre</label>
-        <input type="text" id="name" placeholder="Tu nombre" required>
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Tu nombre"
+          required
+        >
       </div>
 
       <div class="form-group">
         <label for="email">Correo electrónico</label>
-        <input type="email" id="email" placeholder="tu@email.com" required>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="tu@email.com"
+          required
+        >
       </div>
 
       <div class="form-group">
         <label for="date">Fecha de recogida</label>
-        <input type="date" id="date" required>
+
+        <input
+          type="date"
+          id="date"
+          required
+        >
       </div>
 
       <div class="form-group">
         <label for="days">Número de días</label>
-        <input type="number" id="days" min="1" value="1" required>
+
+        <input
+          type="number"
+          id="days"
+          min="1"
+          value="1"
+          required
+        >
       </div>
 
       <div class="form-group">
         <label for="message">Mensaje</label>
-        <textarea id="message" placeholder="Escribe aquí cualquier información adicional..."></textarea>
+
+        <textarea
+          id="message"
+          placeholder="Escribe aquí cualquier información adicional..."
+        ></textarea>
       </div>
 
-      <button class="submit-btn" type="submit">ENVIAR RESERVA</button>
+      <button class="submit-btn" type="submit">
+        ENVIAR RESERVA
+      </button>
     </form>
   </div>
 </section>
@@ -694,8 +731,15 @@ function crearTarjeta(coche) {
         <h3>${coche.name}</h3>
         <p class="brand">${coche.brand}</p>
         <div class="plate">${coche.name.toUpperCase()}</div>
-        <div class="price"><span>${coche.price} €</span> / día</div>
-        <button class="reserve-btn" onclick='seleccionarCoche(${JSON.stringify(coche.name)})'>
+
+        <div class="price">
+          <span>${coche.price} €</span> / día
+        </div>
+
+        <button
+          class="reserve-btn"
+          onclick='seleccionarCoche(${JSON.stringify(coche.name)})'
+        >
           RESERVAR
         </button>
       </div>
@@ -704,7 +748,8 @@ function crearTarjeta(coche) {
 }
 
 function mostrarCoches(gridId, coches) {
-  document.getElementById(gridId).innerHTML = coches.map(crearTarjeta).join("");
+  document.getElementById(gridId).innerHTML =
+    coches.map(crearTarjeta).join("");
 }
 
 mostrarCoches("supercars-grid", supercars);
@@ -712,20 +757,31 @@ mostrarCoches("luxury-grid", luxuryCars);
 mostrarCoches("tesla-grid", teslaCars);
 
 const carSelect = document.getElementById("car");
-const todosLosCoches = [...supercars, ...luxuryCars, ...teslaCars];
+
+const todosLosCoches = [
+  ...supercars,
+  ...luxuryCars,
+  ...teslaCars
+];
 
 todosLosCoches.forEach(coche => {
   const option = document.createElement("option");
+
   option.value = coche.name;
-  option.textContent = `${coche.name} - ${coche.price} €/día`;
+  option.textContent =
+    `${coche.name} - ${coche.price} €/día`;
+
   carSelect.appendChild(option);
 });
 
 function seleccionarCoche(nombre) {
   carSelect.value = nombre;
-  document.getElementById("reservas").scrollIntoView({
-    behavior: "smooth"
-  });
+
+  document
+    .getElementById("reservas")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
 }
 
 document
@@ -733,12 +789,23 @@ document
   .addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const coche = document.getElementById("car").value;
-    const nombre = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const fecha = document.getElementById("date").value;
-    const dias = document.getElementById("days").value;
-    const mensaje = document.getElementById("message").value;
+    const coche =
+      document.getElementById("car").value;
+
+    const nombre =
+      document.getElementById("name").value;
+
+    const email =
+      document.getElementById("email").value;
+
+    const fecha =
+      document.getElementById("date").value;
+
+    const dias =
+      document.getElementById("days").value;
+
+    const mensaje =
+      document.getElementById("message").value;
 
     alert(
       "¡Reserva preparada!\\n\\n" +
