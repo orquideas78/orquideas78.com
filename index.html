@@ -78,10 +78,9 @@
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
-
       background:
         linear-gradient(rgba(0,0,0,.68), rgba(0,0,0,.68)),
-        url("images/hero.jpg") center/cover no-repeat;
+        url("images/ferrari-296-gtb.jpeg") center/cover no-repeat;
     }
 
     .hero-content {
@@ -119,6 +118,12 @@
 
     .section.dark {
       background: #111;
+      max-width: none;
+    }
+
+    .section-inner {
+      max-width: 1500px;
+      margin: auto;
     }
 
     .section-title {
@@ -338,72 +343,51 @@
   <a href="#inicio">Inicio</a>
   <a href="#supercars">Supercars</a>
   <a href="#luxury">Luxury Cars</a>
+  <a href="#tesla">Tesla</a>
   <a href="#reservas">Reservas</a>
 </nav>
 
 <section class="hero" id="inicio">
   <div class="hero-content">
     <h2>Tu mundo, tu coche, tu lujo</h2>
-
-    <p>
-      Descubre nuestra colección exclusiva de supercars
-      y luxury cars.
-    </p>
-
-    <a class="hero-button" href="#supercars">
-      VER COCHES
-    </a>
+    <p>Descubre nuestra colección exclusiva Yellow Edition de supercars, luxury cars y Tesla.</p>
+    <a class="hero-button" href="#supercars">VER COCHES</a>
   </div>
 </section>
-
-
-<!-- ========================= -->
-<!--       40 SUPERCARS         -->
-<!-- ========================= -->
 
 <section class="section" id="supercars">
-
   <div class="section-title">
     <h2>🏎️ SUPERCARS</h2>
-    <p>40 coches de altas prestaciones</p>
+    <p>16 coches exclusivos de altas prestaciones</p>
   </div>
-
   <div class="cars-grid" id="supercars-grid"></div>
-
 </section>
-
-
-<!-- ========================= -->
-<!--       30 LUXURY CARS       -->
-<!-- ========================= -->
 
 <section class="section dark" id="luxury">
-
-  <div class="section-title">
-    <h2>👑 LUXURY CARS</h2>
-    <p>30 coches de máximo lujo y confort</p>
+  <div class="section-inner">
+    <div class="section-title">
+      <h2>👑 LUXURY CARS</h2>
+      <p>15 coches de máximo lujo y confort</p>
+    </div>
+    <div class="cars-grid" id="luxury-grid"></div>
   </div>
-
-  <div class="cars-grid" id="luxury-grid"></div>
-
 </section>
 
-
-<!-- ========================= -->
-<!--          RESERVAS          -->
-<!-- ========================= -->
+<section class="section" id="tesla">
+  <div class="section-title">
+    <h2>⚡ TESLA</h2>
+    <p>9 Teslas Yellow Edition</p>
+  </div>
+  <div class="cars-grid" id="tesla-grid"></div>
+</section>
 
 <section class="reservation-section" id="reservas">
-
   <div class="reservation">
-
     <h2>Reservar un coche</h2>
 
     <form id="reservation-form">
-
       <div class="form-group">
         <label for="car">Coche</label>
-
         <select id="car" required>
           <option value="">Selecciona un coche</option>
         </select>
@@ -411,725 +395,350 @@
 
       <div class="form-group">
         <label for="name">Nombre</label>
-
-        <input
-          type="text"
-          id="name"
-          placeholder="Tu nombre"
-          required
-        >
+        <input type="text" id="name" placeholder="Tu nombre" required>
       </div>
 
       <div class="form-group">
         <label for="email">Correo electrónico</label>
-
-        <input
-          type="email"
-          id="email"
-          placeholder="tu@email.com"
-          required
-        >
+        <input type="email" id="email" placeholder="tu@email.com" required>
       </div>
 
       <div class="form-group">
         <label for="date">Fecha de recogida</label>
-
-        <input
-          type="date"
-          id="date"
-          required
-        >
+        <input type="date" id="date" required>
       </div>
 
       <div class="form-group">
         <label for="days">Número de días</label>
-
-        <input
-          type="number"
-          id="days"
-          min="1"
-          value="1"
-          required
-        >
+        <input type="number" id="days" min="1" value="1" required>
       </div>
 
       <div class="form-group">
         <label for="message">Mensaje</label>
-
-        <textarea
-          id="message"
-          placeholder="Escribe aquí cualquier información adicional..."
-        ></textarea>
+        <textarea id="message" placeholder="Escribe aquí cualquier información adicional..."></textarea>
       </div>
 
-      <button class="submit-btn" type="submit">
-        ENVIAR RESERVA
-      </button>
-
+      <button class="submit-btn" type="submit">ENVIAR RESERVA</button>
     </form>
-
   </div>
-
 </section>
 
-
 <footer>
-
   <h3>WORLD RENT CAR</h3>
-
-  <p>
-    Tu mundo, tu coche, tu lujo.
-  </p>
-
-  <p style="margin-top:10px;">
-    © 2026 World Rent Car
-  </p>
-
+  <p>Tu mundo, tu coche, tu lujo.</p>
+  <p style="margin-top:10px;">© 2026 World Rent Car</p>
 </footer>
 
-
 <script>
-
-/* =========================================
-   40 SUPERCARS
-========================================= */
-
 const supercars = [
-
-  {
-    name: "Ferrari SF90 Stradale",
-    brand: "Ferrari",
-    image: "images/ferrari-sf90-stradale.jpg",
-    price: "2.500"
-  },
-
-  {
-    name: "Ferrari SF90 Spider",
-    brand: "Ferrari",
-    image: "images/ferrari-sf90-spider.jpg",
-    price: "3.000"
-  },
-
-  {
-    name: "Ferrari 812 Superfast",
-    brand: "Ferrari",
-    image: "images/ferrari-812-superfast.jpg",
-    price: "2.000"
-  },
-
-  {
-    name: "Ferrari Portofino",
-    brand: "Ferrari",
-    image: "images/ferrari-portofino.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "Lamborghini Revuelto",
-    brand: "Lamborghini",
-    image: "images/lamborghini-revuelto.jpg",
-    price: "3.500"
-  },
-
-  {
-    name: "Lamborghini Huracán STO",
-    brand: "Lamborghini",
-    image: "images/lamborghini-huracan-sto.jpg",
-    price: "2.500"
-  },
-
-  {
-    name: "Lamborghini Aventador SVJ",
-    brand: "Lamborghini",
-    image: "images/lamborghini-aventador-svj.jpg",
-    price: "3.000"
-  },
-
-  {
-    name: "Lamborghini Urus",
-    brand: "Lamborghini",
-    image: "images/lamborghini-urus.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "McLaren 750S",
-    brand: "McLaren",
-    image: "images/mclaren-750s.jpg",
-    price: "2.000"
-  },
-
-  {
-    name: "McLaren 765LT",
-    brand: "McLaren",
-    image: "images/mclaren-765lt.jpg",
-    price: "2.500"
-  },
-
-  {
-    name: "McLaren Artura",
-    brand: "McLaren",
-    image: "images/mclaren-artura.jpg",
-    price: "1.800"
-  },
-
-  {
-    name: "Porsche 911 Turbo S",
-    brand: "Porsche",
-    image: "images/porsche-911-turbo-s.jpg",
-    price: "1.200"
-  },
-
-  {
-    name: "Porsche 911 GT3 RS",
-    brand: "Porsche",
-    image: "images/porsche-911-gt3-rs.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "Porsche Taycan Turbo GT",
-    brand: "Porsche",
-    image: "images/porsche-taycan-turbo-gt.jpg",
-    price: "1.300"
-  },
-
-  {
-    name: "Aston Martin DB12",
-    brand: "Aston Martin",
-    image: "images/aston-martin-db12.jpg",
-    price: "1.800"
-  },
-
-  {
-    name: "Aston Martin Valkyrie",
-    brand: "Aston Martin",
-    image: "images/aston-martin-valkyrie.jpg",
-    price: "5.000"
-  },
-
-  {
-    name: "Mercedes-AMG GT 63 S E Performance",
-    brand: "Mercedes-AMG",
-    image: "images/mercedes-amg-gt-63-s-e-performance.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "Maserati MC20 Cielo",
-    brand: "Maserati",
-    image: "images/maserati-mc20-cielo.jpg",
-    price: "1.800"
-  },
-
-  {
-    name: "Pagani Huayra",
-    brand: "Pagani",
-    image: "images/pagani-huayra.jpg",
-    price: "8.000"
-  },
-
-  {
-    name: "Bugatti Divo",
-    brand: "Bugatti",
-    image: "images/bugatti-divo.jpg",
-    price: "10.000"
-  },
-
   {
     name: "Bugatti Chiron",
     brand: "Bugatti",
-    image: "images/bugatti-chiron.jpg",
-    price: "8.000"
+    image: "images/bugatti-chiron.jpeg",
+    price: "18.000"
   },
-
   {
-    name: "Koenigsegg Jesko",
-    brand: "Koenigsegg",
-    image: "images/koenigsegg-jesko.jpg",
-    price: "9.000"
-  },
-
-  {
-    name: "Koenigsegg Gemera",
-    brand: "Koenigsegg",
-    image: "images/koenigsegg-gemera.jpg",
-    price: "7.000"
-  },
-
-  {
-    name: "Lotus Emira V6",
-    brand: "Lotus",
-    image: "images/lotus-emira-v6.jpg",
-    price: "800"
-  },
-
-  {
-    name: "Audi R8 V10 Performance",
-    brand: "Audi",
-    image: "images/audi-r8-v10-performance.jpg",
-    price: "1.000"
-  },
-
-  {
-    name: "Nissan GT-R Nismo",
-    brand: "Nissan",
-    image: "images/nissan-gtr-nismo.jpg",
-    price: "1.000"
-  },
-
-  {
-    name: "Chevrolet Corvette ZR1",
-    brand: "Chevrolet",
-    image: "images/chevrolet-corvette-zr1.jpg",
-    price: "1.200"
-  },
-
-  {
-    name: "Ford GT",
-    brand: "Ford",
-    image: "images/ford-gt.jpg",
-    price: "2.500"
-  },
-
-  {
-    name: "Rimac Nevera",
-    brand: "Rimac",
-    image: "images/rimac-nevera.jpg",
-    price: "8.000"
-  },
-
-  {
-    name: "Tesla Roadster",
-    brand: "Tesla",
-    image: "images/tesla-roadster.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "Tesla Model S Plaid",
-    brand: "Tesla",
-    image: "images/tesla-model-s-plaid.jpg",
-    price: "700"
-  },
-
-  {
-    name: "Tesla Model X Plaid",
-    brand: "Tesla",
-    image: "images/tesla-model-x-plaid.jpg",
-    price: "800"
-  },
-
-  {
-    name: "Tesla Model 3 Performance",
-    brand: "Tesla",
-    image: "images/tesla-model-3-performance.jpg",
-    price: "500"
-  },
-
-  {
-    name: "Tesla Model Y Performance",
-    brand: "Tesla",
-    image: "images/tesla-model-y-performance.jpg",
-    price: "550"
-  },
-
-  {
-    name: "Mercedes-AMG SL 63",
-    brand: "Mercedes-AMG",
-    image: "images/mercedes-amg-sl-63.jpg",
-    price: "1.400"
-  },
-
-  {
-    name: "BMW M8 Competition",
-    brand: "BMW",
-    image: "images/bmw-m8-competition.jpg",
-    price: "1.000"
-  },
-
-  {
-    name: "Lexus LFA",
-    brand: "Lexus",
-    image: "images/lexus-lfa.jpg",
-    price: "4.000"
-  },
-
-  {
-    name: "Acura NSX Type S",
-    brand: "Acura",
-    image: "images/acura-nsx-type-s.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "Maserati MC20",
-    brand: "Maserati",
-    image: "images/maserati-mc20.jpg",
-    price: "1.700"
-  },
-
-  {
-    name: "Ferrari 296 GTB",
+    name: "Ferrari SF90 Stradale",
     brand: "Ferrari",
-    image: "images/ferrari-296-gtb.jpg",
-    price: "2.000"
-  }
-
-];
-
-
-/* =========================================
-   30 LUXURY CARS
-========================================= */
-
-const luxuryCars = [
-
-  {
-    name: "Rolls-Royce Phantom",
-    brand: "Rolls-Royce",
-    image: "images/rolls-royce-phantom.jpg",
-    price: "3.000"
+    image: "images/ferrari-sf90-stradale.jpeg",
+    price: "4.500"
   },
-
   {
-    name: "Rolls-Royce Ghost",
-    brand: "Rolls-Royce",
-    image: "images/rolls-royce-ghost.jpg",
-    price: "2.500"
+    name: "Lamborghini Revuelto",
+    brand: "Lamborghini",
+    image: "images/lamborghini-revuelto.jpeg",
+    price: "3.600"
   },
-
+  {
+    name: "Bugatti Divo",
+    brand: "Bugatti",
+    image: "images/bugatti-divo.jpeg",
+    price: "15.000"
+  },
+  {
+    name: "Ferrari 812 Superfast",
+    brand: "Ferrari",
+    image: "images/ferrari-812-superfast.jpeg",
+    price: "3.200"
+  },
+  {
+    name: "McLaren 765LT",
+    brand: "McLaren",
+    image: "images/mclaren-765lt.jpeg",
+    price: "2.800"
+  },
   {
     name: "Rolls-Royce Cullinan",
     brand: "Rolls-Royce",
-    image: "images/rolls-royce-cullinan.jpg",
-    price: "3.000"
+    image: "images/rolls-royce-cullinan.jpeg",
+    price: "2.200"
   },
-
   {
-    name: "Rolls-Royce Spectre",
-    brand: "Rolls-Royce",
-    image: "images/rolls-royce-spectre.jpg",
-    price: "2.800"
+    name: "Aston Martin DBS Superleggera",
+    brand: "Aston Martin",
+    image: "images/aston-martin-dbs-superleggera.jpeg",
+    price: "2.100"
   },
-
   {
-    name: "Bentley Flying Spur Mulliner",
-    brand: "Bentley",
-    image: "images/bentley-flying-spur-mulliner.jpg",
-    price: "2.000"
+    name: "Pagani Huayra",
+    brand: "Pagani",
+    image: "images/pagani-huayra.jpeg",
+    price: "12.000"
   },
-
+  {
+    name: "Ferrari Portofino M",
+    brand: "Ferrari",
+    image: "images/ferrari-portofino-m.jpeg",
+    price: "2.100"
+  },
   {
     name: "Bentley Continental GT",
     brand: "Bentley",
-    image: "images/bentley-continental-gt.jpg",
+    image: "images/bentley-continental-gt.jpeg",
+    price: "1.965"
+  },
+  {
+    name: "Mercedes-AMG GT Black Series",
+    brand: "Mercedes-AMG",
+    image: "images/mercedes-amg-gt-black-series.jpeg",
     price: "1.800"
   },
-
   {
-    name: "Bentley Bentayga Mulliner",
-    brand: "Bentley",
-    image: "images/bentley-bentayga-mulliner.jpg",
-    price: "1.900"
-  },
-
-  {
-    name: "Mercedes-Maybach S 680",
-    brand: "Mercedes-Maybach",
-    image: "images/mercedes-maybach-s680.jpg",
-    price: "1.700"
-  },
-
-  {
-    name: "Mercedes-Maybach GLS 600",
-    brand: "Mercedes-Maybach",
-    image: "images/mercedes-maybach-gls-600.jpg",
-    price: "1.600"
-  },
-
-  {
-    name: "Range Rover SV",
-    brand: "Range Rover",
-    image: "images/range-rover-sv.jpg",
+    name: "Porsche 911 Turbo S",
+    brand: "Porsche",
+    image: "images/porsche-911-turbo-s.jpeg",
     price: "1.500"
   },
-
   {
-    name: "Range Rover Autobiography",
-    brand: "Range Rover",
-    image: "images/range-rover-autobiography.jpg",
-    price: "1.200"
+    name: "Koenigsegg Jesko",
+    brand: "Koenigsegg",
+    image: "images/koenigsegg-jesko.jpeg",
+    price: "11.000"
   },
-
   {
-    name: "Porsche Panamera Turbo S E-Hybrid",
-    brand: "Porsche",
-    image: "images/porsche-panamera-turbo-s-e-hybrid.jpg",
-    price: "1.100"
-  },
-
-  {
-    name: "Porsche Cayenne Turbo GT",
-    brand: "Porsche",
-    image: "images/porsche-cayenne-turbo-gt.jpg",
-    price: "1.000"
-  },
-
-  {
-    name: "Aston Martin DBX707",
-    brand: "Aston Martin",
-    image: "images/aston-martin-dbx707.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "Ferrari Purosangue",
+    name: "Ferrari Roma",
     brand: "Ferrari",
-    image: "images/ferrari-purosangue.jpg",
-    price: "2.500"
-  },
-
-  {
-    name: "Lamborghini Urus S",
-    brand: "Lamborghini",
-    image: "images/lamborghini-urus-s.jpg",
-    price: "1.600"
-  },
-
-  {
-    name: "Maserati Levante Trofeo",
-    brand: "Maserati",
-    image: "images/maserati-levante-trofeo.jpg",
-    price: "1.200"
-  },
-
-  {
-    name: "BMW XM Label",
-    brand: "BMW",
-    image: "images/bmw-xm-label.jpg",
-    price: "1.000"
-  },
-
-  {
-    name: "BMW 7 Series M760e",
-    brand: "BMW",
-    image: "images/bmw-7-series-m760e.jpg",
-    price: "900"
-  },
-
-  {
-    name: "Audi S8",
-    brand: "Audi",
-    image: "images/audi-s8.jpg",
-    price: "800"
-  },
-
-  {
-    name: "Audi RS Q8 Performance",
-    brand: "Audi",
-    image: "images/audi-rs-q8-performance.jpg",
-    price: "900"
-  },
-
-  {
-    name: "Lexus LS 500h",
-    brand: "Lexus",
-    image: "images/lexus-ls-500h.jpg",
-    price: "700"
-  },
-
-  {
-    name: "Genesis G90",
-    brand: "Genesis",
-    image: "images/genesis-g90.jpg",
-    price: "700"
-  },
-
-  {
-    name: "Cadillac Celestiq",
-    brand: "Cadillac",
-    image: "images/cadillac-celestiq.jpg",
-    price: "1.500"
-  },
-
-  {
-    name: "Lucid Air Sapphire",
-    brand: "Lucid",
-    image: "images/lucid-air-sapphire.jpg",
-    price: "1.300"
-  },
-
-  {
-    name: "Tesla Model S",
-    brand: "Tesla",
-    image: "images/tesla-model-s.jpg",
-    price: "700"
-  },
-
-  {
-    name: "Mercedes-Benz EQS 580",
-    brand: "Mercedes-Benz",
-    image: "images/mercedes-benz-eqs-580.jpg",
-    price: "900"
-  },
-
-  {
-    name: "Range Rover Sport SV",
-    brand: "Range Rover",
-    image: "images/range-rover-sport-sv.jpg",
+    image: "images/ferrari-roma.jpeg",
     price: "1.400"
   },
-
   {
-    name: "Bentley Flying Spur Speed",
-    brand: "Bentley",
-    image: "images/bentley-flying-spur-speed.jpg",
-    price: "2.100"
-  },
-
-  {
-    name: "Rolls-Royce Dawn",
-    brand: "Rolls-Royce",
-    image: "images/rolls-royce-dawn.jpg",
-    price: "2.700"
+    name: "Ferrari 296 GTB",
+    brand: "Ferrari",
+    image: "images/ferrari-296-gtb.jpeg",
+    price: "2.000"
   }
-
 ];
 
+const luxuryCars = [
+  {
+    name: "Aston Martin DB12",
+    brand: "Aston Martin",
+    image: "images/aston-martin-db12.jpeg",
+    price: "2.900"
+  },
+  {
+    name: "Mercedes-AMG GT 63 S E Performance",
+    brand: "Mercedes-AMG",
+    image: "images/mercedes-amg-gt-63-s-e-performance.jpeg",
+    price: "2.600"
+  },
+  {
+    name: "Porsche Taycan Turbo GT",
+    brand: "Porsche",
+    image: "images/porsche-taycan-turbo-gt.jpeg",
+    price: "2.400"
+  },
+  {
+    name: "McLaren 750S",
+    brand: "McLaren",
+    image: "images/mclaren-750s.jpeg",
+    price: "2.300"
+  },
+  {
+    name: "Rolls-Royce Spectre",
+    brand: "Rolls-Royce",
+    image: "images/rolls-royce-spectre.jpeg",
+    price: "5.500"
+  },
+  {
+    name: "Lamborghini Urus SE",
+    brand: "Lamborghini",
+    image: "images/lamborghini-urus-se.jpeg",
+    price: "2.800"
+  },
+  {
+    name: "Bentley Flying Spur Mulliner",
+    brand: "Bentley",
+    image: "images/bentley-flying-spur-mulliner.jpeg",
+    price: "2.200"
+  },
+  {
+    name: "Ferrari SF90 Spider",
+    brand: "Ferrari",
+    image: "images/ferrari-sf90-spider.jpeg",
+    price: "3.800"
+  },
+  {
+    name: "Maserati MC20 Cielo",
+    brand: "Maserati",
+    image: "images/maserati-mc20-cielo.jpeg",
+    price: "2.100"
+  },
+  {
+    name: "Audi R8 V10 Performance",
+    brand: "Audi",
+    image: "images/audi-r8-v10-performance.jpeg",
+    price: "1.900"
+  },
+  {
+    name: "Chevrolet Corvette Z06",
+    brand: "Chevrolet",
+    image: "images/chevrolet-corvette-z06.jpeg",
+    price: "1.400"
+  },
+  {
+    name: "BMW M8 Competition Gran Coupé",
+    brand: "BMW",
+    image: "images/bmw-m8-competition-gran-coupe.jpeg",
+    price: "1.600"
+  },
+  {
+    name: "Jaguar F-Type R",
+    brand: "Jaguar",
+    image: "images/jaguar-f-type-r.jpeg",
+    price: "1.300"
+  },
+  {
+    name: "Lotus Emira V6",
+    brand: "Lotus",
+    image: "images/lotus-emira-v6.jpeg",
+    price: "1.200"
+  },
+  {
+    name: "Alpine A110 R",
+    brand: "Alpine",
+    image: "images/alpine-a110-r.jpeg",
+    price: "1.100"
+  }
+];
 
-/* =========================================
-   CREAR TARJETAS
-========================================= */
+const teslaCars = [
+  {
+    name: "Tesla Model S Plaid",
+    brand: "Tesla",
+    image: "images/tesla-model-s-plaid.jpeg",
+    price: "350"
+  },
+  {
+    name: "Tesla Model S Long Range",
+    brand: "Tesla",
+    image: "images/tesla-model-s-long-range.jpeg",
+    price: "280"
+  },
+  {
+    name: "Tesla Model X Plaid",
+    brand: "Tesla",
+    image: "images/tesla-model-x-plaid.jpeg",
+    price: "400"
+  },
+  {
+    name: "Tesla Model X Long Range",
+    brand: "Tesla",
+    image: "images/tesla-model-x-long-range.jpeg",
+    price: "320"
+  },
+  {
+    name: "Tesla Model 3 Performance",
+    brand: "Tesla",
+    image: "images/tesla-model-3-performance.jpeg",
+    price: "220"
+  },
+  {
+    name: "Tesla Model Y Performance",
+    brand: "Tesla",
+    image: "images/tesla-model-y-performance.jpeg",
+    price: "200"
+  },
+  {
+    name: "Tesla Model Y Long Range",
+    brand: "Tesla",
+    image: "images/tesla-model-y-long-range.jpeg",
+    price: "180"
+  },
+  {
+    name: "Tesla Model X Plaid (6 plazas)",
+    brand: "Tesla",
+    image: "images/tesla-model-x-plaid-6-plazas.jpeg",
+    price: "420"
+  },
+  {
+    name: "Tesla Cybertruck AWD",
+    brand: "Tesla",
+    image: "images/tesla-cybertruck-awd.jpeg",
+    price: "500"
+  }
+];
 
 function crearTarjeta(coche) {
-
   return `
     <article class="car-card">
-
       <img
         class="car-image"
         src="${coche.image}"
         alt="${coche.name}"
+        loading="lazy"
         onerror="this.style.display='none'"
       >
 
       <div class="car-info">
-
         <h3>${coche.name}</h3>
-
-        <p class="brand">
-          ${coche.brand}
-        </p>
-
-        <div class="plate">
-          ${coche.name.toUpperCase()}
-        </div>
-
-        <div class="price">
-          <span>${coche.price} €</span> / día
-        </div>
-
-        <button
-          class="reserve-btn"
-          onclick="seleccionarCoche('${coche.name}')">
-
+        <p class="brand">${coche.brand}</p>
+        <div class="plate">${coche.name.toUpperCase()}</div>
+        <div class="price"><span>${coche.price} €</span> / día</div>
+        <button class="reserve-btn" onclick='seleccionarCoche(${JSON.stringify(coche.name)})'>
           RESERVAR
-
         </button>
-
       </div>
-
     </article>
   `;
 }
 
-
-/* =========================================
-   MOSTRAR SUPERCARS
-========================================= */
-
-const supercarsGrid =
-  document.getElementById("supercars-grid");
-
-supercarsGrid.innerHTML =
-  supercars.map(crearTarjeta).join("");
-
-
-/* =========================================
-   MOSTRAR LUXURY CARS
-========================================= */
-
-const luxuryGrid =
-  document.getElementById("luxury-grid");
-
-luxuryGrid.innerHTML =
-  luxuryCars.map(crearTarjeta).join("");
-
-
-/* =========================================
-   LLENAR SELECT DE RESERVA
-========================================= */
-
-const carSelect =
-  document.getElementById("car");
-
-[...supercars, ...luxuryCars].forEach(coche => {
-
-  const option =
-    document.createElement("option");
-
-  option.value = coche.name;
-
-  option.textContent =
-    coche.name;
-
-  carSelect.appendChild(option);
-
-});
-
-
-/* =========================================
-   SELECCIONAR COCHE
-========================================= */
-
-function seleccionarCoche(nombre) {
-
-  carSelect.value = nombre;
-
-  document
-    .getElementById("reservas")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
-
+function mostrarCoches(gridId, coches) {
+  document.getElementById(gridId).innerHTML = coches.map(crearTarjeta).join("");
 }
 
+mostrarCoches("supercars-grid", supercars);
+mostrarCoches("luxury-grid", luxuryCars);
+mostrarCoches("tesla-grid", teslaCars);
 
-/* =========================================
-   FORMULARIO
-========================================= */
+const carSelect = document.getElementById("car");
+const todosLosCoches = [...supercars, ...luxuryCars, ...teslaCars];
+
+todosLosCoches.forEach(coche => {
+  const option = document.createElement("option");
+  option.value = coche.name;
+  option.textContent = `${coche.name} - ${coche.price} €/día`;
+  carSelect.appendChild(option);
+});
+
+function seleccionarCoche(nombre) {
+  carSelect.value = nombre;
+  document.getElementById("reservas").scrollIntoView({
+    behavior: "smooth"
+  });
+}
 
 document
   .getElementById("reservation-form")
   .addEventListener("submit", function(event) {
-
     event.preventDefault();
 
-    const coche =
-      document.getElementById("car").value;
-
-    const nombre =
-      document.getElementById("name").value;
-
-    const email =
-      document.getElementById("email").value;
-
-    const fecha =
-      document.getElementById("date").value;
-
-    const dias =
-      document.getElementById("days").value;
+    const coche = document.getElementById("car").value;
+    const nombre = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const fecha = document.getElementById("date").value;
+    const dias = document.getElementById("days").value;
+    const mensaje = document.getElementById("message").value;
 
     alert(
       "¡Reserva preparada!\\n\\n" +
@@ -1137,11 +746,10 @@ document
       "Nombre: " + nombre + "\\n" +
       "Email: " + email + "\\n" +
       "Fecha: " + fecha + "\\n" +
-      "Días: " + dias
+      "Días: " + dias + "\\n" +
+      "Mensaje: " + mensaje
     );
-
   });
-
 </script>
 
 </body>
