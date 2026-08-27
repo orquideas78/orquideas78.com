@@ -1,340 +1,324 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Rent Car</title>
 
-  <title>World Rent Car</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b0b0b;
+  color: white;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #ffffff;
-    }
+header {
+  background: #ffd400;
+  color: #000;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 5px solid #000;
+}
 
-    header {
-      background: #ffd400;
-      color: #000000;
-      text-align: center;
-      padding: 28px 15px;
-      border-bottom: 5px solid #000;
-    }
+.logo {
+  width: 145px;
+  display: block;
+  margin: 0 auto 12px;
+  border-radius: 12px;
+}
 
-    header h1 {
-      font-size: 44px;
-      font-weight: 900;
-      letter-spacing: 3px;
-    }
+header h1 {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
 
-    header p {
-      margin-top: 8px;
-      font-size: 19px;
-      font-weight: bold;
-    }
+header p {
+  margin-top: 8px;
+  font-size: 19px;
+  font-weight: bold;
+}
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      padding: 14px;
-      flex-wrap: wrap;
-    }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px;
+  flex-wrap: wrap;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 11px 18px;
-      border-radius: 8px;
-      background: #222;
-      transition: .2s;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 11px 18px;
+  border-radius: 8px;
+  background: #222;
+}
 
-    nav a:hover {
-      background: #ffd400;
-      color: #000;
-    }
+nav a:hover {
+  background: #ffd400;
+  color: #000;
+}
 
-    .hero {
-      min-height: 430px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      background:
-        linear-gradient(rgba(0,0,0,.68), rgba(0,0,0,.68)),
-        url("images/ferrari-296-gtb.jpeg") center/cover no-repeat;
-    }
+.hero {
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.68), rgba(0,0,0,.68)),
+    url("images/ferrari-296-gtb.jpeg") center/cover no-repeat;
+}
 
-    .hero-content {
-      max-width: 900px;
-    }
+.hero-content {
+  max-width: 900px;
+}
 
-    .hero h2 {
-      color: #ffd400;
-      font-size: 52px;
-      margin-bottom: 18px;
-      font-weight: 900;
-    }
+.hero h2 {
+  color: #ffd400;
+  font-size: 52px;
+  margin-bottom: 18px;
+  font-weight: 900;
+}
 
-    .hero p {
-      font-size: 22px;
-      line-height: 1.5;
-    }
+.hero p {
+  font-size: 22px;
+  line-height: 1.5;
+}
 
-    .hero-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
-      background: #ffd400;
-      color: #000;
-      text-decoration: none;
-      font-weight: 900;
-      border-radius: 8px;
-    }
+.hero-button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 28px;
+  background: #ffd400;
+  color: #000;
+  text-decoration: none;
+  font-weight: 900;
+  border-radius: 8px;
+}
 
-    .section {
-      max-width: 1500px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+.section {
+  padding: 60px 20px;
+  max-width: 1500px;
+  margin: auto;
+}
 
-    .section.dark {
-      background: #111;
-      max-width: none;
-    }
+.section.dark {
+  max-width: none;
+  background: #111;
+}
 
-    .section-inner {
-      max-width: 1500px;
-      margin: auto;
-    }
+.section-inner {
+  max-width: 1500px;
+  margin: auto;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    .section-title h2 {
-      color: #ffd400;
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
+.section-title h2 {
+  color: #ffd400;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
 
-    .section-title p {
-      color: #aaa;
-      font-size: 18px;
-    }
+.section-title p {
+  color: #aaa;
+  font-size: 18px;
+}
 
-    .cars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
 
-    .car-card {
-      background: #181818;
-      border: 2px solid #292929;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: transform .25s, border-color .25s;
-      box-shadow: 0 10px 30px rgba(0,0,0,.45);
-    }
+.car-card {
+  background: #181818;
+  border: 2px solid #292929;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  transition: .25s;
+}
 
-    .car-card:hover {
-      transform: translateY(-7px);
-      border-color: #ffd400;
-    }
+.car-card:hover {
+  transform: translateY(-7px);
+  border-color: #ffd400;
+}
 
-    .car-image {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      background: #242424;
-    }
+.car-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #242424;
+}
 
-    .car-info {
-      padding: 20px;
-    }
+.car-info {
+  padding: 20px;
+}
 
-    .car-info h3 {
-      color: #ffd400;
-      font-size: 22px;
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
+.car-info h3 {
+  color: #ffd400;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
 
-    .brand {
-      color: #aaa;
-      font-size: 15px;
-      margin-bottom: 13px;
-    }
+.brand {
+  color: #aaa;
+  margin-bottom: 13px;
+}
 
-    .plate {
-      display: inline-block;
-      background: #050505;
-      border: 1px solid #777;
-      border-radius: 5px;
-      color: #fff;
-      font-family: monospace;
-      font-size: 13px;
-      font-weight: bold;
-      padding: 7px 10px;
-      margin-bottom: 15px;
-    }
+.plate {
+  display: inline-block;
+  background: #050505;
+  border: 1px solid #777;
+  border-radius: 5px;
+  color: white;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 7px 10px;
+  margin-bottom: 15px;
+}
 
-    .price {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
 
-    .price span {
-      color: #ffd400;
-    }
+.price span {
+  color: #ffd400;
+}
 
-    .reserve-btn {
-      width: 100%;
-      border: 0;
-      border-radius: 8px;
-      background: #ffd400;
-      color: #000;
-      padding: 13px;
-      font-size: 16px;
-      font-weight: 900;
-      cursor: pointer;
-      transition: .2s;
-    }
+.reserve-btn,
+.submit-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  background: #ffd400;
+  color: #000;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
 
-    .reserve-btn:hover {
-      background: #fff;
-    }
+.reserve-btn:hover,
+.submit-btn:hover {
+  background: white;
+}
 
-    .reservation-section {
-      padding: 60px 20px;
-      background: #080808;
-    }
+.reservation-section {
+  padding: 60px 20px;
+  background: #080808;
+}
 
-    .reservation {
-      max-width: 800px;
-      margin: auto;
-      background: #181818;
-      border: 2px solid #333;
-      border-radius: 15px;
-      padding: 30px;
-    }
+.reservation {
+  max-width: 800px;
+  margin: auto;
+  background: #181818;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 30px;
+}
 
-    .reservation h2 {
-      text-align: center;
-      color: #ffd400;
-      margin-bottom: 25px;
-      font-size: 32px;
-    }
+.reservation h2 {
+  text-align: center;
+  color: #ffd400;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
 
-    .form-group {
-      margin-bottom: 18px;
-    }
+.form-group {
+  margin-bottom: 18px;
+}
 
-    .form-group label {
-      display: block;
-      margin-bottom: 7px;
-      font-weight: bold;
-    }
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #444;
-      border-radius: 7px;
-      background: #292929;
-      color: #fff;
-      font-size: 15px;
-    }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #444;
+  border-radius: 7px;
+  background: #292929;
+  color: white;
+  font-size: 15px;
+}
 
-    .form-group textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
 
-    .submit-btn {
-      width: 100%;
-      border: 0;
-      border-radius: 8px;
-      background: #ffd400;
-      color: #000;
-      padding: 15px;
-      font-size: 18px;
-      font-weight: 900;
-      cursor: pointer;
-    }
+footer {
+  background: #000;
+  border-top: 4px solid #ffd400;
+  text-align: center;
+  padding: 35px 20px;
+}
 
-    .submit-btn:hover {
-      background: #fff;
-    }
+footer h3 {
+  color: #ffd400;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
 
-    footer {
-      background: #000;
-      border-top: 4px solid #ffd400;
-      text-align: center;
-      padding: 35px 20px;
-    }
+footer p {
+  color: #aaa;
+}
 
-    footer h3 {
-      color: #ffd400;
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
+@media (max-width: 650px) {
+  header h1 {
+    font-size: 31px;
+  }
 
-    footer p {
-      color: #aaa;
-    }
+  .hero h2 {
+    font-size: 35px;
+  }
 
-    @media (max-width: 650px) {
-      header h1 {
-        font-size: 31px;
-      }
+  .hero p {
+    font-size: 18px;
+  }
 
-      .hero {
-        min-height: 360px;
-      }
-
-      .hero h2 {
-        font-size: 35px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .section-title h2 {
-        font-size: 31px;
-      }
-    }
-  </style>
+  .section-title h2 {
+    font-size: 31px;
+  }
+}
+</style>
 </head>
 
 <body>
 
 <header>
+  <img class="logo" src="images/logo.png" alt="World Rent Car">
   <h1>WORLD RENT CAR</h1>
   <p>Tu mundo, tu coche, tu lujo</p>
 </header>
@@ -350,10 +334,7 @@
 <section class="hero" id="inicio">
   <div class="hero-content">
     <h2>Tu mundo, tu coche, tu lujo</h2>
-    <p>
-      Descubre nuestra colección exclusiva Yellow Edition
-      de supercars, luxury cars y Tesla.
-    </p>
+    <p>Descubre nuestra colección exclusiva Yellow Edition de supercars, luxury cars y Tesla.</p>
     <a class="hero-button" href="#supercars">VER COCHES</a>
   </div>
 </section>
@@ -363,7 +344,6 @@
     <h2>🏎️ SUPERCARS</h2>
     <p>16 coches exclusivos de altas prestaciones</p>
   </div>
-
   <div class="cars-grid" id="supercars-grid"></div>
 </section>
 
@@ -373,7 +353,6 @@
       <h2>👑 LUXURY CARS</h2>
       <p>15 coches de máximo lujo y confort</p>
     </div>
-
     <div class="cars-grid" id="luxury-grid"></div>
   </div>
 </section>
@@ -383,7 +362,6 @@
     <h2>⚡ TESLA</h2>
     <p>9 Teslas Yellow Edition</p>
   </div>
-
   <div class="cars-grid" id="tesla-grid"></div>
 </section>
 
@@ -392,9 +370,9 @@
     <h2>Reservar un coche</h2>
 
     <form id="reservation-form">
+
       <div class="form-group">
         <label for="car">Coche</label>
-
         <select id="car" required>
           <option value="">Selecciona un coche</option>
         </select>
@@ -402,60 +380,33 @@
 
       <div class="form-group">
         <label for="name">Nombre</label>
-
-        <input
-          type="text"
-          id="name"
-          placeholder="Tu nombre"
-          required
-        >
+        <input type="text" id="name" placeholder="Tu nombre" required>
       </div>
 
       <div class="form-group">
         <label for="email">Correo electrónico</label>
-
-        <input
-          type="email"
-          id="email"
-          placeholder="tu@email.com"
-          required
-        >
+        <input type="email" id="email" placeholder="tu@email.com" required>
       </div>
 
       <div class="form-group">
         <label for="date">Fecha de recogida</label>
-
-        <input
-          type="date"
-          id="date"
-          required
-        >
+        <input type="date" id="date" required>
       </div>
 
       <div class="form-group">
         <label for="days">Número de días</label>
-
-        <input
-          type="number"
-          id="days"
-          min="1"
-          value="1"
-          required
-        >
+        <input type="number" id="days" min="1" value="1" required>
       </div>
 
       <div class="form-group">
         <label for="message">Mensaje</label>
-
-        <textarea
-          id="message"
-          placeholder="Escribe aquí cualquier información adicional..."
-        ></textarea>
+        <textarea id="message" placeholder="Escribe aquí cualquier información adicional..."></textarea>
       </div>
 
       <button class="submit-btn" type="submit">
         ENVIAR RESERVA
       </button>
+
     </form>
   </div>
 </section>
@@ -468,252 +419,67 @@
 
 <script>
 const supercars = [
-  {
-    name: "Bugatti Chiron",
-    brand: "Bugatti",
-    image: "images/bugatti-chiron.jpeg",
-    price: "18.000"
-  },
-  {
-    name: "Ferrari SF90 Stradale",
-    brand: "Ferrari",
-    image: "images/ferrari-sf90-stradale.jpeg",
-    price: "4.500"
-  },
-  {
-    name: "Lamborghini Revuelto",
-    brand: "Lamborghini",
-    image: "images/lamborghini-revuelto.jpeg",
-    price: "3.600"
-  },
-  {
-    name: "Bugatti Divo",
-    brand: "Bugatti",
-    image: "images/bugatti-divo.jpeg",
-    price: "15.000"
-  },
-  {
-    name: "Ferrari 812 Superfast",
-    brand: "Ferrari",
-    image: "images/ferrari-812-superfast.jpeg",
-    price: "3.200"
-  },
-  {
-    name: "McLaren 765LT",
-    brand: "McLaren",
-    image: "images/mclaren-765lt.jpeg",
-    price: "2.800"
-  },
-  {
-    name: "Rolls-Royce Cullinan",
-    brand: "Rolls-Royce",
-    image: "images/rolls-royce-cullinan.jpeg",
-    price: "2.200"
-  },
-  {
-    name: "Aston Martin DBS Superleggera",
-    brand: "Aston Martin",
-    image: "images/aston-martin-dbs-superleggera.jpeg",
-    price: "2.100"
-  },
-  {
-    name: "Pagani Huayra",
-    brand: "Pagani",
-    image: "images/pagani-huayra.jpeg",
-    price: "12.000"
-  },
-  {
-    name: "Ferrari Portofino M",
-    brand: "Ferrari",
-    image: "images/ferrari-portofino-m.jpeg",
-    price: "2.100"
-  },
-  {
-    name: "Bentley Continental GT",
-    brand: "Bentley",
-    image: "images/bentley-continental-gt.jpeg",
-    price: "1.965"
-  },
-  {
-    name: "Mercedes-AMG GT Black Series",
-    brand: "Mercedes-AMG",
-    image: "images/mercedes-amg-gt-black-series.jpeg",
-    price: "1.800"
-  },
-  {
-    name: "Porsche 911 Turbo S",
-    brand: "Porsche",
-    image: "images/porsche-911-turbo-s.jpeg",
-    price: "1.500"
-  },
-  {
-    name: "Koenigsegg Jesko",
-    brand: "Koenigsegg",
-    image: "images/koenigsegg-jesko.jpeg",
-    price: "11.000"
-  },
-  {
-    name: "Ferrari Roma",
-    brand: "Ferrari",
-    image: "images/ferrari-roma.jpeg",
-    price: "1.400"
-  },
-  {
-    name: "Ferrari 296 GTB",
-    brand: "Ferrari",
-    image: "images/ferrari-296-gtb.jpeg",
-    price: "2.000"
-  }
+  ["Bugatti Chiron", "Bugatti", "bugatti-chiron", "18.000"],
+  ["Ferrari SF90 Stradale", "Ferrari", "ferrari-sf90-stradale", "4.500"],
+  ["Lamborghini Revuelto", "Lamborghini", "lamborghini-revuelto", "3.600"],
+  ["Bugatti Divo", "Bugatti", "bugatti-divo", "15.000"],
+  ["Ferrari 812 Superfast", "Ferrari", "ferrari-812-superfast", "3.200"],
+  ["McLaren 765LT", "McLaren", "mclaren-765lt", "2.800"],
+  ["Rolls-Royce Cullinan", "Rolls-Royce", "rolls-royce-cullinan", "2.200"],
+  ["Aston Martin DBS Superleggera", "Aston Martin", "aston-martin-dbs-superleggera", "2.100"],
+  ["Pagani Huayra", "Pagani", "pagani-huayra", "12.000"],
+  ["Ferrari Portofino M", "Ferrari", "ferrari-portofino-m", "2.100"],
+  ["Bentley Continental GT", "Bentley", "bentley-continental-gt", "1.965"],
+  ["Mercedes-AMG GT Black Series", "Mercedes-AMG", "mercedes-amg-gt-black-series", "1.800"],
+  ["Porsche 911 Turbo S", "Porsche", "porsche-911-turbo-s", "1.500"],
+  ["Koenigsegg Jesko", "Koenigsegg", "koenigsegg-jesko", "11.000"],
+  ["Ferrari Roma", "Ferrari", "ferrari-roma", "1.400"],
+  ["Ferrari 296 GTB", "Ferrari", "ferrari-296-gtb", "2.000"]
 ];
 
 const luxuryCars = [
-  {
-    name: "Aston Martin DB12",
-    brand: "Aston Martin",
-    image: "images/aston-martin-db12.jpeg",
-    price: "2.900"
-  },
-  {
-    name: "Mercedes-AMG GT 63 S E Performance",
-    brand: "Mercedes-AMG",
-    image: "images/mercedes-amg-gt-63-s-e-performance.jpeg",
-    price: "2.600"
-  },
-  {
-    name: "Porsche Taycan Turbo GT",
-    brand: "Porsche",
-    image: "images/porsche-taycan-turbo-gt.jpeg",
-    price: "2.400"
-  },
-  {
-    name: "McLaren 750S",
-    brand: "McLaren",
-    image: "images/mclaren-750s.jpeg",
-    price: "2.300"
-  },
-  {
-    name: "Rolls-Royce Spectre",
-    brand: "Rolls-Royce",
-    image: "images/rolls-royce-spectre.jpeg",
-    price: "5.500"
-  },
-  {
-    name: "Lamborghini Urus SE",
-    brand: "Lamborghini",
-    image: "images/lamborghini-urus-se.jpeg",
-    price: "2.800"
-  },
-  {
-    name: "Bentley Flying Spur Mulliner",
-    brand: "Bentley",
-    image: "images/bentley-flying-spur-mulliner.jpeg",
-    price: "2.200"
-  },
-  {
-    name: "Ferrari SF90 Spider",
-    brand: "Ferrari",
-    image: "images/ferrari-sf90-spider.jpeg",
-    price: "3.800"
-  },
-  {
-    name: "Maserati MC20 Cielo",
-    brand: "Maserati",
-    image: "images/maserati-mc20-cielo.jpeg",
-    price: "2.100"
-  },
-  {
-    name: "Audi R8 V10 Performance",
-    brand: "Audi",
-    image: "images/audi-r8-v10-performance.jpeg",
-    price: "1.900"
-  },
-  {
-    name: "Chevrolet Corvette Z06",
-    brand: "Chevrolet",
-    image: "images/chevrolet-corvette-z06.jpeg",
-    price: "1.400"
-  },
-  {
-    name: "BMW M8 Competition Gran Coupé",
-    brand: "BMW",
-    image: "images/bmw-m8-competition-gran-coupe.jpeg",
-    price: "1.600"
-  },
-  {
-    name: "Jaguar F-Type R",
-    brand: "Jaguar",
-    image: "images/jaguar-f-type-r.jpeg",
-    price: "1.300"
-  },
-  {
-    name: "Lotus Emira V6",
-    brand: "Lotus",
-    image: "images/lotus-emira-v6.jpeg",
-    price: "1.200"
-  },
-  {
-    name: "Alpine A110 R",
-    brand: "Alpine",
-    image: "images/alpine-a110-r.jpeg",
-    price: "1.100"
-  }
+  ["Aston Martin DB12", "Aston Martin", "aston-martin-db12", "2.900"],
+  ["Mercedes-AMG GT 63 S E Performance", "Mercedes-AMG", "mercedes-amg-gt-63-s-e-performance", "2.600"],
+  ["Porsche Taycan Turbo GT", "Porsche", "porsche-taycan-turbo-gt", "2.400"],
+  ["McLaren 750S", "McLaren", "mclaren-750s", "2.300"],
+  ["Rolls-Royce Spectre", "Rolls-Royce", "rolls-royce-spectre", "5.500"],
+  ["Lamborghini Urus SE", "Lamborghini", "lamborghini-urus-se", "2.800"],
+  ["Bentley Flying Spur Mulliner", "Bentley", "bentley-flying-spur-mulliner", "2.200"],
+  ["Ferrari SF90 Spider", "Ferrari", "ferrari-sf90-spider", "3.800"],
+  ["Maserati MC20 Cielo", "Maserati", "maserati-mc20-cielo", "2.100"],
+  ["Audi R8 V10 Performance", "Audi", "audi-r8-v10-performance", "1.900"],
+  ["Chevrolet Corvette Z06", "Chevrolet", "chevrolet-corvette-z06", "1.400"],
+  ["BMW M8 Competition Gran Coupé", "BMW", "bmw-m8-competition-gran-coupe", "1.600"],
+  ["Jaguar F-Type R", "Jaguar", "jaguar-f-type-r", "1.300"],
+  ["Lotus Emira V6", "Lotus", "lotus-emira-v6", "1.200"],
+  ["Alpine A110 R", "Alpine", "alpine-a110-r", "1.100"]
 ];
 
 const teslaCars = [
-  {
-    name: "Tesla Model S Plaid",
-    brand: "Tesla",
-    image: "images/tesla-model-s-plaid.jpeg",
-    price: "350"
-  },
-  {
-    name: "Tesla Model S Long Range",
-    brand: "Tesla",
-    image: "images/tesla-model-s-long-range.jpeg",
-    price: "280"
-  },
-  {
-    name: "Tesla Model X Plaid",
-    brand: "Tesla",
-    image: "images/tesla-model-x-plaid.jpeg",
-    price: "400"
-  },
-  {
-    name: "Tesla Model X Long Range",
-    brand: "Tesla",
-    image: "images/tesla-model-x-long-range.jpeg",
-    price: "320"
-  },
-  {
-    name: "Tesla Model 3 Performance",
-    brand: "Tesla",
-    image: "images/tesla-model-3-performance.jpeg",
-    price: "220"
-  },
-  {
-    name: "Tesla Model Y Performance",
-    brand: "Tesla",
-    image: "images/tesla-model-y-performance.jpeg",
-    price: "200"
-  },
-  {
-    name: "Tesla Model Y Long Range",
-    brand: "Tesla",
-    image: "images/tesla-model-y-long-range.jpeg",
-    price: "180"
-  },
-  {
-    name: "Tesla Model X Plaid (6 plazas)",
-    brand: "Tesla",
-    image: "images/tesla-model-x-plaid-6-plazas.jpeg",
-    price: "420"
-  },
-  {
-    name: "Tesla Cybertruck AWD",
-    brand: "Tesla",
-    image: "images/tesla-cybertruck-awd.jpeg",
-    price: "500"
-  }
+  ["Tesla Model S Plaid", "Tesla", "tesla-model-s-plaid", "350"],
+  ["Tesla Model S Long Range", "Tesla", "tesla-model-s-long-range", "280"],
+  ["Tesla Model X Plaid", "Tesla", "tesla-model-x-plaid", "400"],
+  ["Tesla Model X Long Range", "Tesla", "tesla-model-x-long-range", "320"],
+  ["Tesla Model 3 Performance", "Tesla", "tesla-model-3-performance", "220"],
+  ["Tesla Model Y Performance", "Tesla", "tesla-model-y-performance", "200"],
+  ["Tesla Model Y Long Range", "Tesla", "tesla-model-y-long-range", "180"],
+  ["Tesla Model X Plaid (6 plazas)", "Tesla", "tesla-model-x-plaid-6-plazas", "420"],
+  ["Tesla Cybertruck AWD", "Tesla", "tesla-cybertruck-awd", "500"]
+];
+
+function convertirCoche(datos) {
+  return {
+    name: datos[0],
+    brand: datos[1],
+    image: "images/" + datos[2] + ".jpeg",
+    price: datos[3]
+  };
+}
+
+const todosLosCoches = [
+  ...supercars.map(convertirCoche),
+  ...luxuryCars.map(convertirCoche),
+  ...teslaCars.map(convertirCoche)
 ];
 
 function crearTarjeta(coche) {
@@ -731,7 +497,6 @@ function crearTarjeta(coche) {
         <h3>${coche.name}</h3>
         <p class="brand">${coche.brand}</p>
         <div class="plate">${coche.name.toUpperCase()}</div>
-
         <div class="price">
           <span>${coche.price} €</span> / día
         </div>
@@ -747,75 +512,61 @@ function crearTarjeta(coche) {
   `;
 }
 
-function mostrarCoches(gridId, coches) {
-  document.getElementById(gridId).innerHTML =
-    coches.map(crearTarjeta).join("");
-}
+document.getElementById("supercars-grid").innerHTML =
+  supercars.map(convertirCoche).map(crearTarjeta).join("");
 
-mostrarCoches("supercars-grid", supercars);
-mostrarCoches("luxury-grid", luxuryCars);
-mostrarCoches("tesla-grid", teslaCars);
+document.getElementById("luxury-grid").innerHTML =
+  luxuryCars.map(convertirCoche).map(crearTarjeta).join("");
+
+document.getElementById("tesla-grid").innerHTML =
+  teslaCars.map(convertirCoche).map(crearTarjeta).join("");
 
 const carSelect = document.getElementById("car");
 
-const todosLosCoches = [
-  ...supercars,
-  ...luxuryCars,
-  ...teslaCars
-];
-
 todosLosCoches.forEach(coche => {
   const option = document.createElement("option");
-
   option.value = coche.name;
-  option.textContent =
-    `${coche.name} - ${coche.price} €/día`;
-
+  option.textContent = `${coche.name} - ${coche.price} €/día`;
   carSelect.appendChild(option);
 });
 
 function seleccionarCoche(nombre) {
   carSelect.value = nombre;
 
-  document
-    .getElementById("reservas")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
+  document.getElementById("reservas").scrollIntoView({
+    behavior: "smooth"
+  });
 }
+
+const URL_GOOGLE_SHEETS =
+  "https://script.google.com/macros/s/AKfycbwHwaDBLJk_hRxyzL2IjmeIzkVbHV-o_EQHQOxIDvLYILwjD9tyV6tDxW4nJB5W9FWC/exec";
 
 document
   .getElementById("reservation-form")
   .addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const coche =
-      document.getElementById("car").value;
+    const datos = new URLSearchParams({
+      coche: document.getElementById("car").value,
+      nombre: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      fecha: document.getElementById("date").value,
+      dias: document.getElementById("days").value,
+      mensaje: document.getElementById("message").value
+    });
 
-    const nombre =
-      document.getElementById("name").value;
-
-    const email =
-      document.getElementById("email").value;
-
-    const fecha =
-      document.getElementById("date").value;
-
-    const dias =
-      document.getElementById("days").value;
-
-    const mensaje =
-      document.getElementById("message").value;
-
-    alert(
-      "¡Reserva preparada!\\n\\n" +
-      "Coche: " + coche + "\\n" +
-      "Nombre: " + nombre + "\\n" +
-      "Email: " + email + "\\n" +
-      "Fecha: " + fecha + "\\n" +
-      "Días: " + dias + "\\n" +
-      "Mensaje: " + mensaje
-    );
+    fetch(URL_GOOGLE_SHEETS, {
+      method: "POST",
+      mode: "no-cors",
+      body: datos
+    })
+    .then(function() {
+      alert("¡Reserva enviada correctamente!");
+      document.getElementById("reservation-form").reset();
+    })
+    .catch(function() {
+      alert("No se ha podido enviar la reserva.");
+    });
   });
 </script>
 
